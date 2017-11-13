@@ -1,0 +1,14 @@
+CREATE OR REPLACE
+FUNCTION fn_Obtener_Precio(precio VARCHAR2) 
+RETURN NUMBER
+IS
+  result NUMBER;
+BEGIN
+  SELECT PRECIO INTO result
+  FROM PRODUCTOS
+  WHERE PRODUCTO = precio;
+  return(result);
+EXCEPTION 
+WHEN NO_DATA_FOUND THEN
+  return 0;
+END ;
