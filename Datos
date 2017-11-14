@@ -1,0 +1,31 @@
+--DATOS PARA TABLA VENTA
+INSERT INTO venta(id_ticket, id_cliente, id_vendedor, fecha_venta, total_venta)
+values(1,1,1, to_date(sysdate, 'DD-MM-YY'), 80);
+INSERT INTO venta(id_ticket, id_cliente, id_vendedor, fecha_venta, total_venta)
+values(2,1,1, to_date(sysdate, 'DD-MM-YY'), 180);
+INSERT INTO venta(id_ticket, id_cliente, id_vendedor, fecha_venta, total_venta)
+values(3,3,1, to_date(sysdate, 'DD-MM-YY'), 200);
+INSERT INTO venta(id_ticket, id_cliente, id_vendedor, fecha_venta, total_venta)
+values(4,1,1, to_date(sysdate, 'DD-MM-YY'), 10);
+INSERT INTO venta(id_ticket, id_cliente, id_vendedor, fecha_venta, total_venta)
+values(5,2,1, to_date(sysdate, 'DD-MM-YY'), 100);
+
+
+--DATOS PARA TABLA VENTA_DETALLE
+INSERT INTO VENTA_DETALLE VALUES(1,1,1,1, fn_calculaPrecio(1,1) );
+INSERT INTO VENTA_DETALLE VALUES(2,1,3,3, fn_calculaPrecio(3,3) );
+INSERT INTO VENTA_DETALLE VALUES(3,1,2,7, fn_calculaPrecio(2,7) );
+INSERT INTO VENTA_DETALLE VALUES(4,2,1,1, fn_calculaPrecio(1,1) );
+INSERT INTO VENTA_DETALLE VALUES(5,2,5,2, fn_calculaPrecio(5,2) );
+INSERT INTO VENTA_DETALLE VALUES(6,3,1,5, fn_calculaPrecio(1,5) );
+INSERT INTO VENTA_DETALLE VALUES(7,4,1,3, fn_calculaPrecio(1,3) );
+INSERT INTO VENTA_DETALLE VALUES(8,4,1,7, fn_calculaPrecio(1,7) );
+INSERT INTO VENTA_DETALLE VALUES(9,4,3,9, fn_calculaPrecio(3,9) );
+
+
+--INSERSION DE DATOS A LA TABLA CLIENTES
+insert into clientes values(1,'RAQUEL','MENDOZA','TREJO','VENUSTIANO CARRANZA','135001','@','FG123215');
+insert into clientes values(2,'DANIEL','HERNANDEZ','PEREZ','XOCONGO','155002','@','HY665987');
+insert into clientes values(3,'ROCIO','TREJO','GUZMAN','XOCHIMILCO','185003','@','JK231545');
+insert into clientes values(4,'VICTOR','HERNANDEZ','CHAVEZ','IZTAPALAPA','125904','@','OI232456');
+insert into clientes values(5,'SAMUEL','HORTEGA','ACOSTA','MIGUEL HIDALGO','97905','@','DF123456');
