@@ -82,7 +82,7 @@ CONSTRAINT FK_VENDEDOR FOREIGN KEY(id_vendedor) REFERENCES vendedor(id_vendedor)
 
 -- Creacion de la tabla VentaDetalle --
 CREATE TABLE Venta_Detalle(
-id_ventaDetalle NUMBER(5),
+id_venta_detalle NUMBER(5),
 id_ticket NUMBER (5) NOT NULL,
 id_producto NUMBER(5) NOT NULL,
 cantidad NUMBER (10) NOT NULL,
