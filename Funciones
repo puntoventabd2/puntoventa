@@ -5,13 +5,13 @@ IS
   result NUMBER;
 BEGIN
   SELECT PRECIO INTO result
-  FROM PRODUCTOS
-  WHERE PRODUCTO = id_produ;
+  FROM PRODUCTO_bits1
+  WHERE id_producto = id_produ;
   return(result);
 EXCEPTION 
 WHEN NO_DATA_FOUND THEN
   return 0;
-END ;
+END fn_Obtener_Precio ;
 
 
 --DEVUELVE EL PRECIO TOTAL DEL PRODUCTO POR LA CANTIDAD
