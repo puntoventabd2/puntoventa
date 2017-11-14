@@ -1,0 +1,19 @@
+Un bloque que nos pide el rfc de un usuario y nos muestra su nombre.
+
+DECLARE
+   v_nom clientes.nombre%TYPE;
+   v_apep clientes.apellido_paterno%TYPE;
+   v_apem clientes.apellido_materno%TYPE;
+BEGIN
+   select nombre,apellido_paterno,apellido_materno
+   into Vnom,Vapep,Vapem from clientes 
+   where rfc= '&V_rfc';
+   DBMS_OUTPUT.PUT_LINE ('Nombre: '||v_nom|| 'Apellido paterno: '||v_apep||'Apellido materno:'||v_apem );
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+    Dbms_output.put_line('No  existe cliente con ese rfc');
+
+   WHEN OTHERS THEN
+   Dbms_output.put_line('otros errores');
+END;
