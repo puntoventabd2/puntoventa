@@ -1,0 +1,31 @@
+--MUESTRA LOS DETALLES DE LAS COMPRAS QUE HA REALIZADO UN CLIENTE EN ESPECIFICO
+--DEVUELVE EL NUMERO DE COMPRAS QUE REALIZO EL CLIENTE (NUMERO DE TICKETS DIFERENTES)
+
+CREATE FUNCTION fn_compras_cliente ( cliente IN NUMBER)
+RETURN NUMBER
+IS
+    NUMCOMPRAS NUMBER;
+BEGIN
+    
+    FOR X IN 
+    (
+        SELECT  v.id_ticket, v.id_cliente, p.nombre, vd.cantidad
+        FROM PRODUCTO P, VENTAS V , VENTAS_DETALLE VD
+        WHERE VD.ID_PRODUCTO = P.ID_PRODUCTO
+            AND VD.ID_TICKET = V.ID_TICKET
+            AND ID_CLIENTE = cliente 
+    )
+    LOOP
+        DBMS_OUTPUT.PUT_LINE(X.ID_TICKET || '  '  || X.ID_CLIENTE || '  '|| X.NOMBRE || '  ' || X.CANTIDAD);
+    END LOOP;
+              
+    SELECT COUNT(*)
+    INTO NUMCOMPRAS
+    FROM (SELECT DISTINCT VD.ID_TICKET 
+             FROM VENTAS_DETALLE VD, VENTAS V
+             WHERE VD.ID_TICKET = V.ID_TICKET
+                AND V.ID_CLIENTE = cliente);
+            
+    Return NUMCOMPRAS;
+
+END fn_compras_cliente;
